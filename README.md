@@ -13,10 +13,15 @@ Need:
 ***Main***
 
 - Intialize array of length 20 to Null or " "
-- put the first block in slot 10 and then
-- 19 times:  pick up a block from "the chute", find a proper space, make room if necessary, and finally, place the block
+- Put the first block in slot 10
+- 19 times: pick up a block from "the chute", find a proper space, make room if necessary, and place the block
+
+***Variables***
+- A counter for the number of times the Switch Blocks function is called
+- A tracker for the current robot position
+- A tracker for the current block in the robot's hand
 
 
+Remember: 
 The Robot Challenge: Your robot will be judged by the fewest number of swapped blocks. To keep up with that number you will need to maintain a count of the number of times the Switch Blocks function is called. 
 
-The Robot Challenge should be in mind when determining which slot a block should go in and which direction to shift blocks to minimize movement. 
