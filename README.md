@@ -14,7 +14,7 @@ Need:
 
 - Intialize array of length 20 to Null or " "
 - Put the first block in slot 10
-- 19 times: pick up a block from "the chute", find a proper space, make room if necessary, and place the block
+- 19 times: pick up a block from "the chute", find a proper space, place the block, and shift other blocks down to make room if necessary
 
 ***Variables***
 - A counter for the number of times the Switch Blocks function is called
