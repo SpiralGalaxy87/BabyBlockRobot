@@ -12,7 +12,7 @@ Need:
 
 ***Main***
 
--Intialize array of length 20 to Null or " "
+- Intialize array of length 20 to Null or " "
 - put the first block in slot 10 and then
 - 19 times:  pick up a block from "the chute", find a proper space, make room if necessary, and finally, place the block
 
