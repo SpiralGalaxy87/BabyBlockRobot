@@ -2,8 +2,8 @@
 
 using namespace std;
 
-void cluster();
-void spreader();
+//void cluster();
+//void spreader();
 void moveTo(unsigned int);
 
 char slots[20] = {' '};
@@ -33,6 +33,11 @@ int main(void)
             cout << "_ ";
         }
     }
+
+    cout << "move to 6" << endl;
+    moveTo(6);
+    cout << "move to 4" << endl;
+    moveTo(4);
 
     system("pause");
     return 0;

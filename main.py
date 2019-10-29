@@ -31,7 +31,7 @@ class MyHandler(FileSystemEventHandler):
             # subprocess.run(["cat", event.src_path])
 
             # Compile and run the code
-            subprocess.run("clear")
+            # subprocess.run("clear")
             compProcess = subprocess.run(["g++", "-o", "CompiledCode", event.src_path, "robot_functions.cpp"], shell=True)
             time.sleep(0.1)
             # Check if compilation was successful 
