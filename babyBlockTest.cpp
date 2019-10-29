@@ -10,8 +10,6 @@ char slots[20] = {' '};
 unsigned int blockCounter = 0, swapCounter = 0, curPos = 0;
 char curBlock;
 
-//hello
-
 int main(void)
 {
 
