@@ -13,9 +13,11 @@
 //																			//
 // ------------------------------------------------------------------------ //
 
+using namespace std;
+
 //
 // Function get_block
-// Reads in a single character value from the keyboard 
+// Reads in a single character value from the keyboard
 // This is the input from the chute
 // Returns: a single character in uppercase
 //
@@ -54,7 +56,7 @@ void print_slots(char slots[])
 // Function put_block
 // This function stores a character into the character array representing the slots
 //
-// Inputs: 
+// Inputs:
 // block - type char - The character to be inserted into a slot
 // position - type unsigned int - index of the slot where the block will go
 // array - type char - array of slots containing the blocks
@@ -77,7 +79,7 @@ unsigned int put_block(char block, unsigned int position, char array[])
 // This function removes a block from the slot array
 // The slot where the block is removed is then set to a space
 //
-// Inputs: 
+// Inputs:
 // position - type unsigned int - index of the slot where block is located
 // array - type char - array of slots containing the blocks
 //
@@ -91,17 +93,16 @@ unsigned int remove_block(unsigned int position, char array[])
 	bool debug = true;
 	char block = ' ';
 	block = array[position];
-	array[position] = ' ';  // Reset slot to blank after block removed
+	array[position] = ' '; // Reset slot to blank after block removed
 	if (debug)
 		cout << "Block " << block << " removed from slot " << position + 1 << endl;
 	return block;
 }
 
-
 // Function shift_right
-// This function increments the index simulating a movement of the robot 
+// This function increments the index simulating a movement of the robot
 // to the next higher slot (index) of the array
-// 
+//
 // Inputs:
 // position - type unsigned int - current slot position
 //
@@ -121,9 +122,9 @@ unsigned int shift_right(unsigned int position)
 }
 
 // Function shift_left
-// This function decrements the index simulating a movement of the robot 
+// This function decrements the index simulating a movement of the robot
 // to the next lower slot (index) of the array
-// 
+//
 // Inputs:
 // position - type unsigned int - current slot position
 //
@@ -143,9 +144,9 @@ unsigned int shift_left(unsigned int position)
 }
 
 // Function robot_ltoreq_slot
-// This function compares the value of the block held by the robot 
-// with the value of the block in a slot 
-// 
+// This function compares the value of the block held by the robot
+// with the value of the block in a slot
+//
 // Inputs:
 // robot - type char - value of block held by robot
 // in_slot - type char - value of block in the slot
@@ -161,7 +162,8 @@ bool robot_ltoreq_slot(char robot, char in_slot)
 {
 	bool debug = true;
 	if (debug)
-		cout << endl <<  "Comparing robot block " << robot << " with block in slot " << in_slot << endl;
+		cout << endl
+			 << "Comparing robot block " << robot << " with block in slot " << in_slot << endl;
 	if (robot <= in_slot)
 	{
 		if (debug)
@@ -176,10 +178,10 @@ bool robot_ltoreq_slot(char robot, char in_slot)
 	}
 }
 // Function switch_blocks
-// This function switches the block held by the robot with a block in a slot. 
+// This function switches the block held by the robot with a block in a slot.
 // After the switch the robot is holding the block removed from the slot.
-// 
-// Inputs: 
+//
+// Inputs:
 // robot - type char - The block to be inserted into a slot
 // position - type unsigned int - index of the slot where the block will go
 // array - type char - array of slots containing the blocks
@@ -202,10 +204,10 @@ char switch_blocks(char robot, unsigned int position, char array[])
 	return robot;
 }
 // Function test_empty
-// This function tests the array to determine if a slot is empty (NULL) 
-// or if the slot contains a blank. The slot array must be intialized to 
+// This function tests the array to determine if a slot is empty (NULL)
+// or if the slot contains a blank. The slot array must be intialized to
 // all NULL or all blanks (spaces) before any blocks are added.
-// 
+//
 // Inputs:
 // position - type unsigned int - index of slot to be tested
 //
@@ -220,7 +222,7 @@ bool test_empty(unsigned int position, char array[])
 {
 	char blank = ' '; // Blank space
 	bool debug = true;
-	if  (array[position] == NULL || array[position] == blank)
+	if (array[position] == NULL || array[position] == blank)
 	{
 		if (debug)
 			cout << "Slot " << position << " empty. " << endl;
@@ -232,7 +234,6 @@ bool test_empty(unsigned int position, char array[])
 			cout << "Slot " << position << " contains a block " << endl;
 		return false;
 	}
-
 }
 
 // ------------------------------------------------------------------------ //
@@ -257,15 +258,14 @@ bool test_empty(unsigned int position, char array[])
 
 char get_block_testcase(unsigned int testcase, unsigned int index)
 {
-	string testcases[5] = { "AXFIUTRPQVWSEYJINYTB",
-		"ABFGHIJKMOPRSTUVWXYZ",
-		"ZYXWVUTSRPOKJIIHGFBA",
-		"AAAAAYYYYYQQQQQXXXXX",
-		"XXXAAAZZZAAYYVVVVQQQ" };
+	string testcases[5] = {"AXFIUTRPQVWSEYJINYTB",
+						   "ABFGHIJKMOPRSTUVWXYZ",
+						   "ZYXWVUTSRPOKJIIHGFBA",
+						   "AAAAAYYYYYQQQQQXXXXX",
+						   "XXXAAAZZZAAYYVVVVQQQ"};
 
 	return testcases[testcase - 1].at(index);
 }
-
 
 //
 // Function get_block_testone
@@ -280,8 +280,6 @@ char get_block_testone(void)
 	char test_case_one[21] = "AXFIUTRPQVWSEYJINYTB";
 	return test_case_one[index++];
 }
-
-
 
 //
 // Function get_block_testtwo

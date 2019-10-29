@@ -14,9 +14,9 @@ unsigned int cluster();
 unsigned int spreader();
 unsigned int moveTo(unsigned int, unsigned int);
 
-char slots[20];
+char slots[20] = {' '};
 unsigned int blockCounter = 0, swapCounter = 0, curPos = 0;
-char curBlock = '';
+char curBlock;
 
 int main(void)
 {
@@ -46,18 +46,18 @@ int main(void)
     return 0;
 }
 
-unsigned int cluster()
-{
-    return position;
-}
+// unsigned int cluster()
+// {
+//     return position;
+// }
 
-unsigned int spreader()
-{
-    return position;
-}
+// unsigned int spreader()
+// {
+//     return position;
+// }
 
-unsigned int moveTo(unsigned int fromPos, unsigned int toPos)
-{
-    // Use shift_right() / shift_left() to move to final position
-    return position;
-}
+// unsigned int moveTo(unsigned int fromPos, unsigned int toPos)
+// {
+//     // Use shift_right() / shift_left() to move to final position
+//     return position;
+// }
