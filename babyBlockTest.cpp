@@ -2,9 +2,9 @@
 
 using namespace std;
 
-unsigned int cluster();
-unsigned int spreader();
-unsigned int moveTo(unsigned int, unsigned int);
+void cluster();
+void spreader();
+void moveTo(unsigned int);
 
 char slots[20] = {' '};
 unsigned int blockCounter = 0, swapCounter = 0, curPos = 0;
@@ -48,8 +48,14 @@ int main(void)
 //     return position;
 // }
 
-// unsigned int moveTo(unsigned int fromPos, unsigned int toPos)
-// {
-//     // Use shift_right() / shift_left() to move to final position
-//     return position;
-// }
+void moveTo(unsigned int toPos)
+{
+    while (curPos < toPos)
+    {
+        curPos = shift_right(curPos);
+    }
+    while (curPos > toPos)
+    {
+        curPos = shift_left(curPos);
+    }
+}
