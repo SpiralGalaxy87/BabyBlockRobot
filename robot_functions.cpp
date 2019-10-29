@@ -1,10 +1,5 @@
-#include <iostream>
-#include <fstream>
-#include <iomanip>
-#include <string>
-#include <iterator>
-#include <map>
-#include <math.h>
+#include "robot_functions.h"
+
 // ------------------------------------------------------------------------ //
 //																			//
 //																			//
