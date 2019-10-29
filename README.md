@@ -26,9 +26,9 @@ Remember:
 The Robot Challenge: Your robot will be judged by the fewest number of swapped blocks. To keep up with that number you will need to maintain a count of the number of times the Switch Blocks function is called.
 
 Notes:
-- To inlcude the robot_functions as a separate file, we must create a robot_functions.h
-Currently the code doesn't compile because the included cpp file does not have a "main",
-making a header file will fix this.
+- ~~To inlcude the robot_functions as a separate file, we must create a robot_functions.h
+~~Currently the code doesn't compile because the included cpp file does not have a "main",
+making a header file will fix this.~~
 - Also, there were some issues with the robot functions file so I added "using namespace std".
 - I think you may be missing the C++ VSCode extension, this will probably help out a lot when things won't compile.
 - Moving forward, it would be best for you to actually clone the repo so that it will be easier to merge later on.
