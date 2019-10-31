@@ -109,7 +109,7 @@ unsigned int remove_block(unsigned int position, char array[])
 
 unsigned int shift_right(unsigned int position)
 {
-	bool debug = true;
+	bool debug = false;
 	position++;
 	if (debug)
 		cout << "Position right shifted to " << position << endl;
@@ -131,7 +131,7 @@ unsigned int shift_right(unsigned int position)
 
 unsigned int shift_left(unsigned int position)
 {
-	bool debug = true;
+	bool debug = false;
 	position--;
 	if (debug)
 		cout << "Position left shifted to " << position << endl;
@@ -217,7 +217,7 @@ bool test_empty(unsigned int position, char array[])
 {
 	char blank = ' '; // Blank space
 	bool debug = true;
-	if (array[position] == NULL || array[position] == blank)
+	if (array[position] == blank)
 	{
 		if (debug)
 			cout << "Slot " << position << " empty. " << endl;

@@ -3,7 +3,7 @@
 using namespace std;
 
 //void cluster();
-//void spreader();
+void spreader();
 void moveTo(unsigned int);
 
 char slots[20] = {' '};
@@ -13,45 +13,18 @@ char curBlock;
 int main(void)
 {
 
-    int numBlocks;
-
-    cout << "enter number of blocks: " << endl;
-    cin >> numBlocks;
-    float inc;
-    inc = (20.0 / (numBlocks + 1.0));
-    cout << "increment: " << inc << endl;
-
-    for (int i = 0; i <= 19; i++)
-    {
-        if (numBlocks > 0 && (i + 1) % int(round(inc)) == 0 && (i != 0 || int(round(inc)) == 0))
-        {
-            numBlocks--;
-            cout << "* ";
-        }
-        else
-        {
-            cout << "_ ";
-        }
-    }
-
-    cout << "move to 6" << endl;
-    moveTo(6);
-    cout << "move to 4" << endl;
-    moveTo(4);
-
     system("pause");
     return 0;
 }
 
-// unsigned int cluster()
+// void cluster()
 // {
 //
 // }
 
-unsigned int spreader()
+void spreader()
 {
-    float increment = (20.0 / (blockCounter + 1.0));
-    int slotIndex = round(increment);
+    int slotIndex = 1;
     int spreadBlocks = 0;
 
     moveTo(20 - blockCounter);
@@ -59,12 +32,12 @@ unsigned int spreader()
     while (spreadBlocks != blockCounter)
     {
 
-        curBlock = remove_block();
+        curBlock = remove_block(curPos, slots);
         moveTo(slotIndex);
         put_block(curBlock, curPos, slots);
 
-        slotIndex += round(increment);
         spreadBlocks++;
+        slotIndex += 2;
 
         moveTo(20 - blockCounter + spreadBlocks);
     }
