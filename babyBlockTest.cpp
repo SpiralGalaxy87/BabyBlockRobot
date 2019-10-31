@@ -45,13 +45,30 @@ int main(void)
 
 // unsigned int cluster()
 // {
-//     return position;
+//
 // }
 
-// unsigned int spreader()
-// {
-//     return position;
-// }
+unsigned int spreader()
+{
+    float increment = (20.0 / (blockCounter + 1.0));
+    int slotIndex = round(increment);
+    int spreadBlocks = 0;
+
+    moveTo(20 - blockCounter);
+
+    while (spreadBlocks != blockCounter)
+    {
+
+        curBlock = remove_block();
+        moveTo(slotIndex);
+        put_block(curBlock, curPos, slots);
+
+        slotIndex += round(increment);
+        spreadBlocks++;
+
+        moveTo(20 - blockCounter + spreadBlocks);
+    }
+}
 
 void moveTo(unsigned int toPos)
 {
