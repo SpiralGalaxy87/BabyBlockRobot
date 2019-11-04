@@ -6,12 +6,16 @@ using namespace std;
 void spreader();
 void moveTo(unsigned int);
 
-char slots[20] = {' '};
-unsigned int blockCounter = 0, swapCounter = 0, curPos = 0, tCase = 1;
+char slots[20];
+unsigned int blockCounter = 0, swapCounter = 0, curPos = 0, tCase = 2;
 char curBlock;
 
 int main(void)
 {
+    for (int i = 0; i < 19; i++)
+    {
+        slots[i] = ' ';
+    }
     curBlock = get_block_testcase(tCase, 0);
     moveTo(9); //should slot 10 be index 9, or 10? I say 9.
     put_block(curBlock, curPos, slots);
@@ -58,19 +62,25 @@ int main(void)
                 }
                 if (test_empty(l, slots)) //if shuffling left optimizes, then shuffle the blocks left
                 {
+
                     while (curPos > l)
                     {
                         curBlock = switch_blocks(curBlock, curPos, slots);
                         moveTo(curPos - 1);
                     }
+                    put_block(curBlock, curPos, slots);
+                    blockCounter++;
                 }
                 else //if shuffling right optimizes, then shuffle the blocks right
                 {
+                    blockCounter++;
                     while (curPos < r)
                     {
                         curBlock = switch_blocks(curBlock, curPos, slots);
                         moveTo(curPos + 1);
                     }
+                    put_block(curBlock, curPos, slots);
+                    blockCounter++;
                 }
             }
         }
