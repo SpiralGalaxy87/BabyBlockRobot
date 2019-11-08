@@ -2,12 +2,12 @@
 
 using namespace std;
 
-//void cluster();
+void cluster();
 void spreader();
 void moveTo(unsigned int);
 
 char slots[20];
-unsigned int blockCounter = 0, swapCounter = 0, curPos = 0, tCase = 2;
+unsigned int blockCounter = 0, swapCounter = 0, curPos = 0, tCase = 1;
 char curBlock;
 
 int main(void)
@@ -24,7 +24,8 @@ int main(void)
     while (blockCounter < 20)
     {
         print_slots(slots);
-        get_block_testcase(tCase, blockCounter);
+        curBlock = get_block_testcase(tCase, blockCounter);
+
         moveTo(0);
 
         while (curPos != 19 && (test_empty(curPos, slots) || !robot_ltoreq_slot(curBlock, slots[curPos])))
@@ -32,7 +33,7 @@ int main(void)
             moveTo(curPos + 1);
         }
 
-        if (curPos != 0)
+        if (curPos != 0 && curPos != 19)
         { //if we are not at the begining of the array, move back one slot, to block's ideal pos
             moveTo(curPos - 1);
         }
@@ -41,6 +42,7 @@ int main(void)
         {
             put_block(curBlock, curPos, slots);
             blockCounter++;
+            print_slots(slots);
             spreader();
         }
         else //if there are more than 10 blocks:
@@ -70,6 +72,8 @@ int main(void)
                     }
                     put_block(curBlock, curPos, slots);
                     blockCounter++;
+                    cout << "Swapped blocks L: " << endl;
+                    print_slots(slots);
                 }
                 else //if shuffling right optimizes, then shuffle the blocks right
                 {
@@ -81,22 +85,60 @@ int main(void)
                     }
                     put_block(curBlock, curPos, slots);
                     blockCounter++;
+                    cout << "Swapped blocks R: " << endl;
+                    print_slots(slots);
                 }
             }
         }
     }
+    cout << endl
+         << "Final Print: " << endl;
+    print_slots(slots);
 
     system("pause");
     return 0;
 }
 
-// void cluster()
-// {
-//
-// }
+void cluster()
+{
+    int blocksSeen = blockCounter;
+    moveTo(0);
+
+    while (blocksSeen > 0)
+    {
+        if (!test_empty(curPos, slots))
+            blocksSeen--;
+        moveTo(curPos + 1);
+    }
+
+    moveTo(curPos - 1);
+    char temp = remove_block(curPos, slots);
+
+    while (true)
+    {
+        while (curPos != (19 - blocksSeen))
+            moveTo(curPos + 1);
+
+        put_block(temp, curPos, slots);
+        blocksSeen++;
+        moveTo(curPos - 1);
+
+        if (blocksSeen == blockCounter)
+            break;
+
+        while (test_empty(curPos, slots))
+            moveTo(curPos - 1);
+
+        temp = remove_block(curPos, slots);
+        moveTo(curPos + 1);
+    }
+    print_slots(slots);
+}
 
 void spreader()
 {
+    cluster();
+
     int slotIndex = 1;
     int spreadBlocks = 0;
 

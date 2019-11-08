@@ -216,7 +216,7 @@ char switch_blocks(char robot, unsigned int position, char array[])
 bool test_empty(unsigned int position, char array[])
 {
 	char blank = ' '; // Blank space
-	bool debug = true;
+	bool debug = false;
 	if (array[position] == blank)
 	{
 		if (debug)
