@@ -63,7 +63,7 @@ void print_slots(char slots[])
 
 unsigned int put_block(char block, unsigned int position, char array[])
 {
-	bool debug = true;
+	bool debug = false;
 	array[position] = block;
 	if (debug)
 		cout << "Block " << block << " inserted into slot " << position << endl;
@@ -85,7 +85,7 @@ unsigned int put_block(char block, unsigned int position, char array[])
 
 unsigned int remove_block(unsigned int position, char array[])
 {
-	bool debug = true;
+	bool debug = false;
 	char block = ' ';
 	block = array[position];
 	array[position] = ' '; // Reset slot to blank after block removed
@@ -155,7 +155,7 @@ unsigned int shift_left(unsigned int position)
 //
 bool robot_ltoreq_slot(char robot, char in_slot)
 {
-	bool debug = true;
+	bool debug = false;
 	if (debug)
 		cout << endl
 			 << "Comparing robot block " << robot << " with block in slot " << in_slot << endl;
@@ -190,7 +190,7 @@ bool robot_ltoreq_slot(char robot, char in_slot)
 char switch_blocks(char robot, unsigned int position, char array[])
 {
 	char temp_hold;
-	bool debug = true;
+	bool debug = false;
 	if (debug)
 		cout << "Switching blocks " << robot << " with " << array[position] << endl;
 	temp_hold = robot;
